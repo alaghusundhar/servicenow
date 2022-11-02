@@ -2,6 +2,7 @@
 
 @Library('shared-lib') _
 
+/*
 import groovy.json.JsonSlurperClassic
 
 void call(body) {
@@ -55,3 +56,4 @@ pipeline {
     }
 
 }
+/*
