@@ -11,7 +11,7 @@ void call(body) {
 }
 
 pipeline {
-    agent {
+    agent none
         stages {
             stage('Set Parameters') {
                 steps {
@@ -49,7 +49,5 @@ pipeline {
                 }
             }
         }
-
-    }
 
 }
