@@ -1,6 +1,6 @@
 // Author:- alagusundaram.nithyanandam@sap.com
 
-@Library('k8s-release-pipeline') _
+@Library(['shared-lib']) _
 
 import groovy.json.JsonSlurperClassic
 
