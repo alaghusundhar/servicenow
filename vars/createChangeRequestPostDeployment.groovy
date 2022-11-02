@@ -1,6 +1,6 @@
 // Author:- alagusundaram.nithyanandam@sap.com
 
-@Library(['shared-lib']) _
+@Library('shared-lib') _
 
 import groovy.json.JsonSlurperClassic
 
