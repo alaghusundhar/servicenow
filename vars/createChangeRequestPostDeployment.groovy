@@ -11,9 +11,6 @@ void call(body) {
 
  pipeline {
     agent any
-    environment {
-        TOKEN_CREDS=credentials(servicenow-token-credential-id-prod)
-    }
     stages {
         stage('Servicenow Oauth Token Generation') {
             environment {
