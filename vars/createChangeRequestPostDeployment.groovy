@@ -7,26 +7,12 @@ void call(body) {
  String strDataCenter = ''
  String strEnvironmentName = ''
  String strServiceName = ''
- String strReleaseTagName = ''   
+ String strReleaseTagName = ''
+ String strOathUrl =''   
 
  pipeline {
     agent any
     stages {
-        stage('Servicenow Oauth Token Generation') {
-            environment {
-                TOKEN_CREDS=credentials('servicenow-token-credential-id-prod')
-            }
-            steps {
-                script {
-                    def oAuthToken = sh (script: '''curl --request POST --url '$SERVICENOW_PROD_OAUTH' 
-                    --header 'content-type: application/x-www-form-urlencoded' 
-                    --data grant_type=client_credentials 
-                    --data client_id=$TOKEN_CREDS_USR 
-                    --data client_secret=$TOKEN_CREDS_PSW''', returnStdout: true)
-                    println (oAuthToken)     
-                }
-            }
-        }
         stage('Set Parameters') {
             steps {
                 script {
@@ -52,6 +38,21 @@ void call(body) {
                     if (!strReleaseTagName) {
                         error('Release Tag must be set . !!!')
                     }
+                }
+            }
+        }
+        stage('Servicenow Oauth Token Generation') {
+            environment {
+                TOKEN_CREDS=credentials('servicenow-token-credential-id-prod')
+            }
+            steps {
+                script {
+                    def oAuthToken = sh (script: '''curl --request POST --url $SERVICENOW_PROD_OAUTH 
+                    --header 'content-type: application/x-www-form-urlencoded' 
+                    --data grant_type=client_credentials 
+                    --data client_id=$TOKEN_CREDS_USR 
+                    --data client_secret=$TOKEN_CREDS_PSW''', returnStdout: true)
+                    println (oAuthToken)     
                 }
             }
         }
