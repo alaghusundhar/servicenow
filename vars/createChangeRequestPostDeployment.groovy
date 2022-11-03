@@ -23,6 +23,7 @@ void call(body) {
                 }
             }
         }
+        /*
         stage('Validate Parameters') {
             steps {
                 script {
@@ -41,6 +42,7 @@ void call(body) {
                 }
             }
         }
+        */
         stage('Servicenow Oauth Token Generation') {
             environment {
                 TOKEN_CREDS=credentials('servicenow-token-credential-id-prod')
