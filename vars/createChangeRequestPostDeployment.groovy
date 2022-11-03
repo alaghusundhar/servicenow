@@ -17,7 +17,7 @@ void call(body) {
     stages {
         stage('Servicenow Oauth Token Generation') {
             environment {
-                TOKEN_CREDS=credentials(servicenow-token-credential-id-prod)
+                TOKEN_CREDS=credentials('servicenow-token-credential-id-prod')
             }
             steps {
                 script {
