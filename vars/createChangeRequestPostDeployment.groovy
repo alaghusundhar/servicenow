@@ -8,10 +8,9 @@ void call(body) {
  String strEnvironmentName = ''
  String strServiceName = ''
  String strReleaseTagName = ''   
-}
 
-pipeline {
-    agent none
+ pipeline {
+    agent any
     environment {
         TOKEN_CREDS=credentials(servicenow-token-credential-id-prod)
     }
@@ -67,4 +66,5 @@ pipeline {
             }
         }
     }
+}
 }
