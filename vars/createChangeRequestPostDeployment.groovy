@@ -50,7 +50,7 @@ void call(body) {
             steps {
                 script {
                     def oAuthToken = sh (script: '''curl --request POST --url $SERVICENOW_PROD_OAUTH 
-                    --header 'content-type: application/x-www-form-urlencoded' 
+                    --header 'content-type: application/json' 
                     --data grant_type=client_credentials 
                     --data client_id=$TOKEN_CREDS_USR 
                     --data client_secret=$TOKEN_CREDS_PSW''', returnStdout: true)
